@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mi Tienda</title>
+</head>
+<body>
+  <h1>🛒 Mi Tienda Online</h1>
+
+  <div id="productos"></div>
+
+  <script>
+    const productos = [
+      { nombre: "Netflix 1 mes", precio: 5, stock: 2 },
+      { nombre: "Spotify 1 mes", precio: 3, stock: 0 }
+    ];
+
+    const contenedor = document.getElementById("productos");
+
+    productos.forEach(p => {
+      const div = document.createElement("div");
+      div.innerHTML = `
+        <h3>${p.nombre}</h3>
+        <p>Precio: $${p.precio}</p>
+        <p>${p.stock > 0 ? "Stock: " + p.stock : "❌ AGOTADO"}</p>
+        <button ${p.stock === 0 ? "disabled" : ""}>Comprar</button>
+        <hr>
+      `;
+      contenedor.appendChild(div);
+    });
+  </script>
+</body>
+</html>
